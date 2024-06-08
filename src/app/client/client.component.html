@@ -1,0 +1,25 @@
+<div>
+    <h2>Clients</h2>
+    <ul>
+      <li *ngFor="let client of clients">
+        {{ client.firstName }} {{ client.lastName }} - {{ client.mobile }}
+      </li>
+    </ul>
+    <h3>Create Client</h3>
+    <form (ngSubmit)="createClient()">
+      <label>
+        First Name:
+        <input [(ngModel)]="newClient.firstName" name="firstName" required />
+      </label>
+      <label>
+        Last Name:
+        <input [(ngModel)]="newClient.lastName" name="lastName" required />
+      </label>
+      <label>
+        Mobile:
+        <input [(ngModel)]="newClient.mobile" name="mobile" required />
+      </label>
+      <button type="submit">Create Client</button>
+    </form>
+  </div>
+  

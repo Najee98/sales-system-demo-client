@@ -1,0 +1,28 @@
+<div>
+    <h2>Products</h2>
+    <!-- Product list -->
+  
+    <h3>Create Product</h3>
+    <form (ngSubmit)="createProduct()">
+      <label>
+        Name:
+        <input [(ngModel)]="newProduct.name" name="name" required />
+      </label>
+      <label>
+        Description:
+        <input [(ngModel)]="newProduct.description" name="description" required />
+      </label>
+      <label>
+        Price:
+        <input type="number" [(ngModel)]="newProduct.price" name="price" required />
+      </label>
+      <label>
+        Category:
+        <select [(ngModel)]="newProduct.categoryId" name="categoryId" required>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+      </label>
+      <button type="submit">Create Product</button>
+    </form>
+  </div>
+  

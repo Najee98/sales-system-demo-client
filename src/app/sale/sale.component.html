@@ -1,0 +1,40 @@
+<div>
+    <h2>Sales</h2>
+    <ul>
+      <li *ngFor="let sale of sales">
+        {{ sale.creationDate }} - {{ sale.client }} - {{ sale.seller }} - {{ sale.total }}
+      </li>
+    </ul>
+    <h3>Create Sale</h3>
+    <form (ngSubmit)="createSale()">
+      <label>
+        Seller:
+        <input [(ngModel)]="newSale.seller" name="seller" required />
+      </label>
+      <label>
+        Client ID:
+        <input type="number" [(ngModel)]="newSale.clientId" name="clientId" required />
+      </label>
+      <h4>Add Products</h4>
+      <label>
+        Product ID:
+        <input type="number" [(ngModel)]="newProductUpdate.productId" name="productId" required />
+      </label>
+      <label>
+        Quantity:
+        <input type="number" [(ngModel)]="newProductUpdate.quantity" name="quantity" required />
+      </label>
+      <label>
+        Price:
+        <input type="number" [(ngModel)]="newProductUpdate.price" name="price" required />
+      </label>
+      <button type="button" (click)="addProductToSale()">Add Product</button>
+      <ul>
+        <li *ngFor="let product of newSale.products">
+          Product ID: {{ product.productId }}, Quantity: {{ product.quantity }}, Price: {{ product.price }}
+        </li>
+      </ul>
+      <button type="submit">Create Sale</button>
+    </form>
+  </div>
+  
